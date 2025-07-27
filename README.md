@@ -6,21 +6,20 @@ This repository contains scripts and configuration files to deploy **Apache Supe
 
 ## Repository Structure
 
-superset-on-minikube/
-├── README.md # Main guide and instructions
-├── my-values.yaml # Your custom Helm values (not included here)
-├── scripts/
-│ ├── install-tools.ps1 # (Windows) Install Chocolatey, kubectl, Helm, Minikube
-│ ├── install-tools.sh # (Linux) Install kubectl, Helm, Minikube
-│ ├── gen-secret-key.ps1 # (Windows) Generate Superset SECRET_KEY
-│ ├── gen-secret-key.sh # (Linux) Generate Superset SECRET_KEY
-│ ├── kubectl-helpers.ps1 # (Windows) Helper commands for Helm and kubectl
-│ └── kubectl-helpers.sh # (Linux) Helper commands for Helm and kubectl
-├── docs/
-│ ├── troubleshooting.md # Troubleshooting guide for Superset on Minikube
-│ └── setup-linux.md # (Optional) Linux-specific setup notes
-├── .gitignore # Recommended ignores
-
+📁 superset-on-minikube/
+├── 📄 README.md                   # 📘 Project overview, usage instructions, and setup notes
+├── 📄 my-values.yaml             # ⚙️ Custom Helm configuration for Superset
+├── 📁 scripts/                   # 🔧 Automation scripts for setup and deployment
+│   ├── install-tools.ps1        # 🪟 Windows: Install Chocolatey, kubectl, Helm, Minikube
+│   ├── install-tools.sh         # 🐧 Linux: Install kubectl, Helm, Minikube
+│   ├── gen-secret-key.ps1       # 🪟 Windows: Generate Superset SECRET_KEY
+│   ├── gen-secret-key.sh        # 🐧 Linux: Generate Superset SECRET_KEY
+│   ├── kubectl-helpers.ps1      # 🪟 Windows: Utility commands for Helm & kubectl
+│   └── kubectl-helpers.sh       # 🐧 Linux: Utility commands for Helm & kubectl
+├── 📁 docs/                      # 📚 Documentation and troubleshooting guides
+│   ├── troubleshooting.md       # 🛠️ Common issues and resolution steps
+│   └── setup-linux.md           # 🐧 Linux-specific setup instructions (optional)
+├── 📄 .gitignore                 # 🚫 File and folder exclusions for Git tracking
 
 
 ---
