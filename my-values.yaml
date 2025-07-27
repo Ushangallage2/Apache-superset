@@ -1,7 +1,7 @@
 # ✅ Set a secure SECRET_KEY and feature flags
 configOverrides:
   superset_config.py: |
-    SECRET_KEY = "mM7k50GcFjfZK6Zh3JY+zYKrFHQ45sIIJRXvlwbxV6LirPD+usJ66kQ4"
+    SECRET_KEY = "YOUR_SECRET_KEY"
 
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:iPiIKgJimK@superset-postgresql:5432/superset"
 
@@ -22,7 +22,7 @@ init:
 postgresql:
   auth:
     username: postgres
-    password: iPiIKgJimK
+    password: YOUR_PASSWORD	
 
 # 🎛 Enable Celery beat (for alerts/reports)
 supersetCeleryBeat:
