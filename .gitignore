@@ -1,0 +1,8 @@
+# Ignore Kubernetes secret files, logs, and local environment files
+
+*.secret.json
+secret.json
+*.log
+*.tmp
+.vscode/
+*.user

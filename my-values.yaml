@@ -1,0 +1,58 @@
+# ✅ Set a secure SECRET_KEY and feature flags
+configOverrides:
+  superset_config.py: |
+    SECRET_KEY = "mM7k50GcFjfZK6Zh3JY+zYKrFHQ45sIIJRXvlwbxV6LirPD+usJ66kQ4"
+
+    SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:iPiIKgJimK@superset-postgresql:5432/superset"
+
+    FEATURE_FLAGS = {
+      "ALERT_REPORTS": True,
+      "DYNAMIC_PLUGINS": True
+    }
+
+image:
+  repository: apache/superset
+  tag: 2.1.0
+
+# 🚀 Load example dashboards
+init:
+  loadExamples: true
+
+# 🔐 PostgreSQL password
+postgresql:
+  auth:
+    username: postgres
+    password: iPiIKgJimK
+
+# 🎛 Enable Celery beat (for alerts/reports)
+supersetCeleryBeat:
+  enabled: true
+
+# 📧 Optional SMTP settings
+extraEnv:
+  SMTP_HOST: smtp.gmail.com
+  SMTP_USER: user@gmail.com
+  SMTP_PORT: "587"
+  SMTP_MAIL_FROM: user@gmail.com
+
+extraSecretEnv:
+  SMTP_PASSWORD: admin
+
+# 🛠 Bootstrap script to install required dependencies inside the pod
+bootstrapScript: |
+  #!/bin/bash
+
+  apt-get update && apt-get install -y \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential \
+    pkg-config
+
+  pip install \
+    authlib \
+    psycopg2-binary \
+    mysqlclient
+
+  if [ ! -f ~/bootstrap ]; then
+    echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap
+  fi
